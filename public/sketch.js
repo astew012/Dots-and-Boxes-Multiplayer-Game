@@ -1,4 +1,10 @@
+//Instructions: This is a simple Dots & Boxes inspired sketch built with P5.JS and Socket.IO. It allows multiple users to draw on the same canvas in real-time, with each user assigned a unique letter and color. The sketch includes a grid of dots and instructions for how to play the game. Users can click and drag to draw lines between the dots, and their drawings will be visible to all other connected users. The sketch also displays the user's assigned letter in the bottom right corner of the canvas.
+// This is the client-side code for our Dots & Boxes inspired sketch. It will run in the browser and handle all the drawing logic, as well as the communication with our Node.JS server via Socket.IO.
 // Create connection to Node.JS Server
+// We will use this connection to send and receive data from our P5.JS sketch
+// We will use Socket.IO for real-time communication between our server and clients
+//This file is where we will write our P5.JS sketch and handle all the drawing logic, as well as the communication with our Node.JS server via Socket.IO
+//
 const socket = io();
 
 let bSize = 3; // brush size
