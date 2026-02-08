@@ -26,11 +26,29 @@ server.listen(port, () => {
 await open(`http://localhost:${port}`);//opens in your default browser
 //// REMOVE IF YOU PUT ON RENDER //////
 
+let userCount = 0;
+const userLetters = ['A', 'B', 'C', 'D', 'E', 'F']; // multiple users will be assigned letters in order of connection, can be expanded for more users
+let connectedUsers = {}; // track connected users
+
 // Callback function for when our P5.JS sketch connects 
 io.on("connection", (socket) => {
+  const userLetter = userLetters[userCount % userLetters.length];
+  const userId = userCount;
+  userCount++;
+  connectedUsers[socket.id] = { letter: userLetter, id: userId };
+  
+  // Send user letter to the connected client
+  socket.emit("assignUser", userLetter);
+  console.log(`User ${userLetter} connected with socket id: ${socket.id}`);
+  
   socket.on("drawing", (data) => {
-  socket.broadcast.emit("drawing", data);
+  io.emit("drawing", data); // send to everyone including the sender
   console.log(data);
+  });
+  
+  socket.on("disconnect", () => {
+    delete connectedUsers[socket.id];
+    console.log(`User ${userLetters[userId]} disconnected`);
   });
 
 
