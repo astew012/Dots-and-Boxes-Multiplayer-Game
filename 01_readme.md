@@ -32,3 +32,6 @@ Inspired by the nostalgia of long childhood car journeys or sitting bored in a c
 
 # Instructions for user 
 This is a simple Dots & Boxes inspired sketch built with P5.JS and Socket.IO. It allows multiple users to draw on the same canvas in real-time, with each user assigned a unique letter and color. The sketch includes a grid of dots and instructions for how to play the game. Users can click and drag to draw lines between the dots, and their drawings will be visible to all other connected users. The sketch also displays the user's assigned letter in the bottom right corner of the canvas.
+
+# Acknowldegements
+This sketch was built upon the class workshop code. 
