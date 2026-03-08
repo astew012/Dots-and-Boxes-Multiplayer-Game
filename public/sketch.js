@@ -106,13 +106,7 @@ function drawInstructions() {
     panelH - 20
   );
 }
-
-////IMPLEMENT MULTI-USER DRAWING////
-
-
-
-////IMPLEMENT MULTI-USER DRAWING////
-
+ //Multiplayer drawing 
 
 //Events we are listening for
 // Connect to Node.JS Server

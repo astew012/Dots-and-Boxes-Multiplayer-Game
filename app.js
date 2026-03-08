@@ -1,14 +1,16 @@
 // Import Libraries and Setup
-// This is the server-side code for our Dots & Boxes inspired sketch. It will run on a Node.JS server and handle all the communication with our P5.JS sketch via Socket.IO. We will use Express to serve our P5.JS sketch from the public folder, and Socket.IO to handle real-time communication between our server and clients. The server will listen for connections from clients, assign each client a unique letter, and broadcast drawing data to all connected clients so that everyone can see each other's drawings in real-time.
+// This is the server-side code for our Dots & Boxes inspired sketch. It will run on a Node.JS server and handle all the communication with our P5.JS sketch via Socket.IO.
+//  We will use Express to serve our P5.JS sketch from the public folder, and Socket.IO to handle real-time communication between our server and clients. 
+// The server will listen for connections from clients, assign each client a unique letter, and broadcast drawing data to all connected clients so that everyone can see each other's drawings in real-time.
 
 
 import express from "express";
 import http from "http";
 import { Server } from "socket.io";
 
-//// REMOVE IF YOU PUT ON RENDER //////
-import open, {openApp, apps} from 'open';//only needed for a simple development tool remove if hosting online see above
-//// REMOVE IF YOU PUT ON RENDER //////
+
+import open, {openApp, apps} from 'open';
+
 
 const app = express();
 const server = http.createServer(app);//socket.io needs an http server
